@@ -1,10 +1,11 @@
-import adivinhacao as adv_game
-import forca as forca_game
+import adivinhacao
+import forca
 
 
 def game_over():
     print("Fim de jogo !")
     restart = input("Deseja iniciar novo jogo? Digite S para reiniciar: ")
+    print('\n')
     if restart.upper() == "S": main()
 
 
@@ -25,11 +26,10 @@ def main():
     print("***********************************\n")
     option = choose_game()
 
-    if option == 1: forca_game.jogo_da_forca()
-    if option == 2: adv_game.jogo_adivinhacao()
+    if option == 1: adivinhacao.play()
+    if option == 2: forca.play()
     print('\n')
     game_over()
-    print('\n')
 
 
 if __name__ == '__main__':

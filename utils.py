@@ -6,6 +6,7 @@ def format_number():
     formatado3 = "R$ {:7.2f}".format(4.54)
     print(formatado3)
 
+
 def print_date(dia, mes, ano):
     print(dia, mes, ano, sep="/")
 

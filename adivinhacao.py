@@ -1,5 +1,6 @@
 import random
 
+
 def frio_ou_quente(numero_correto, chute, max_numero):
     value = abs(chute - numero_correto)
     if value <= round(max_numero * 0.02): return "EXTREMAMENTE QUENTE!!!"
@@ -25,6 +26,7 @@ def nivel_jogo():
 
     return nivel
 
+
 def get_game_lvl(lvl):
     # returns [max_numero, max_rodada]
     if lvl == 1:
@@ -39,7 +41,7 @@ def get_game_lvl(lvl):
         return [500, 5]
 
 
-def jogo_adivinhacao():
+def play():
     print("Bem vindo ao jogo de Adivinhação!")
     lvl = nivel_jogo()
     pontos = 5_000
@@ -81,9 +83,3 @@ def jogo_adivinhacao():
             print("Voce não adivinhou o número!")
             print("DICA: Seu chute está", frio_ou_quente(numero_secreto, chute, max_numero), '\n')
             pontos = pontos - calcular_pontos(abs(chute - numero_secreto), tentativa, lvl)
-
-
-
-
-
-
