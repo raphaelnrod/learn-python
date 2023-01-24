@@ -1,0 +1,16 @@
+Garçonete
+Arquiteto
+Jardineiro
+Enfermeira
+Atriz
+Taxista
+Dentista
+Carpinteiro
+Jornalista
+Caixa
+Programador
+Medico
+Advogado
+Cantor
+Personal Trainer
+Professor

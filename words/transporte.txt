@@ -1,0 +1,15 @@
+Ferrovia
+Asa delta
+Caiaque
+Triciclo
+Helicoptero
+Patins
+Carruagem
+Carro
+Jetski
+Navio
+Motocicleta
+Caminhao
+Camionete
+Bicicleta
+Patinete

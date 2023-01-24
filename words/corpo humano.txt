@@ -1,0 +1,17 @@
+Cintura
+Peito
+Cabelo
+Cotovelo
+Perna
+Cerebro
+Cabeça
+Joelho
+Torax
+Peitoral
+Biceps
+Triceps
+Quadriceps
+Abdomen
+Clavicula
+Escapula
+Deltoide

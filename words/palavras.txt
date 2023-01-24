@@ -1,0 +1,11 @@
+animal
+corpo humano
+esporte
+forma geometrica
+fruta
+objeto
+parentesco
+profissao
+tecnologia
+transporte
+verbo

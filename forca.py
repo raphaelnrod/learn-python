@@ -18,39 +18,45 @@ def print_char(doll_char):
     for curr in doll_char: print(curr)
 
 
-def open_word_file():
-    word_file = "./palavras.txt"
-    return utils.remove_duplicates(open(word_file).read().splitlines())
+def get_secret_word():
+    words_file = open("words/palavras.txt").read().splitlines()
+    random.shuffle(words_file)
+    tip = words_file[0]
+    word_list = open("words/{}.txt".format(tip)).read().splitlines()
+    random.shuffle(word_list)
+    secret_word = word_list[0]
+    return {'tip': tip, 'secret': secret_word}
 
 
-def get_random_word_from_list(l):
-    random.shuffle(l)
-    return l[0]
+def doll_config():
+    # configuracao para montagem do boneco sendo enforcado
+    # primeira tuple = numero da linha da matriz do desenho a ser alterada
+    # segunda tuple = string da parte do boneco
+    # terceira tuple = index (horizontalmente) onde vai ser feito o replace para uma parte do corpo do boneco
+    return {
+        "attempt1": (2, "(o_o)", 4),
+        "attempt2": (3, "/", 4),
+        "attempt3": (3, " | ", 5),
+        "attempt4": (3, " \\", 7),
+        "attempt5": (4, "|", 6),
+        "attempt6": (5, "/", 5),
+        "attempt7": (5, " \\", 6),
+    }
 
 
 def assemble_char(current, attempt):
-    if attempt == 1:
-        current[2] = util.replacer(current[2], "(o_o)", 4)
-    if attempt == 2:
-        current[3] = util.replacer(current[3], "/", 4)
-    if attempt == 3:
-        current[3] = util.replacer(current[3], " | ", 5)
-    if attempt == 4:
-        current[3] = util.replacer(current[3], " \\", 7)
-    if attempt == 5:
-        current[4] = util.replacer(current[4], "|", 6)
-    if attempt == 6:
-        current[5] = util.replacer(current[5], "/", 5)
-    if attempt == 7:
-        current[5] = util.replacer(current[5], " \\", 6)
+    a = "attempt" + str(attempt)
+    c = doll_config().get(a)
+    current[c[0]] = util.replacer(current[c[0]], c[1], c[2])
     return current
 
 
 def play():
     print("Bem vindo ao jogo da Forca!")
     game_word = ''
-    words_list = open_word_file()
-    secret_word = get_random_word_from_list(words_list).upper()
+    secret_tip = get_secret_word()
+    secret_word = secret_tip.get('secret').upper()
+    tip_word = secret_tip.get('tip').upper()
     if len(secret_word.split()) > 1:
         compost = secret_word.split()
         idx = len(compost)
@@ -64,6 +70,7 @@ def play():
     hanged = False
     achieved = False
     print("A palavra secreta possui {} letras!".format(len(secret_word)))
+    print("FIQUE ATENTO! A dica é: {}!".format(tip_word))
     doll_char = initial_char()
     print_char(doll_char)
     print("Progresso:", game_word)
@@ -99,11 +106,9 @@ def play():
         print_char(doll_char)
         print("Progresso:", game_word)
         print("Letras já usadas:", " ".join(used_char), "\n")
-        if errors > 6:
-            hanged = True
+        hanged = errors > 6
         attempt += 1
-        if not game_word.__contains__('_'):
-            achieved = True
+        achieved = not game_word.__contains__('_')
 
     if hanged:
         print("Você foi enforcado! GAME OVER HAHAHA")

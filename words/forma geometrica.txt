@@ -1,0 +1,14 @@
+Hexagono
+Estrela
+Paralelogramo
+Trapezio
+Losango
+Retangulo
+Paralelepipedo
+Pentagono
+Circulo
+Circunferencia
+Quadrado
+Redondo
+Hipotenusa
+Cateto
