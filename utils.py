@@ -13,3 +13,18 @@ def print_date(dia, mes, ano):
 
 def print_type(var, var_name):
     print('The', var_name, "is a type of:", type(var))
+
+
+def replacer(s, newstring, index):
+    # if not erroring, but the index is still not in the correct range..
+    if index < 0:  # add it to the beginning
+        return newstring + s
+    if index > len(s):  # add it to the end
+        return s + newstring
+
+    # insert the new string between "slices" of the original
+    return s[:index] + newstring + s[index + 1:]
+
+
+def remove_duplicates(l):
+    return list(set(l))

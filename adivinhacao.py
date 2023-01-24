@@ -51,7 +51,6 @@ def play():
 
     numero_secreto = random.randint(1, max_numero)
     tentativa = 1
-    print(numero_secreto)
 
     # for rodada in range(1, max_rodada):
     while True:

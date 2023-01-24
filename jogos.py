@@ -26,8 +26,8 @@ def main():
     print("***********************************\n")
     option = choose_game()
 
-    if option == 1: adivinhacao.play()
-    if option == 2: forca.play()
+    if option == 2: adivinhacao.play()
+    if option == 1: forca.play()
     print('\n')
     game_over()
 
