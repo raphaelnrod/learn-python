@@ -2,11 +2,11 @@ import adivinhacao
 import forca
 
 
-def game_over():
-    print("Fim de jogo !")
-    restart = input("Deseja iniciar novo jogo? Digite S para reiniciar: ")
+def start(game):
+    if game == 2: adivinhacao.play()
+    if game == 1: forca.play()
     print('\n')
-    if restart.upper() == "S": main()
+    return game_over()
 
 
 def choose_game():
@@ -20,16 +20,20 @@ def choose_game():
     return opt
 
 
+def game_over():
+    print("Fim de jogo !")
+    restart = input("Deseja iniciar novo jogo? Digite S para reiniciar: ")
+    print('\n')
+    return restart.upper() == "S"
+
+
 def main():
     print("***********************************")
     print("***** Escolha algo para jogar *****")
     print("***********************************\n")
-    option = choose_game()
 
-    if option == 2: adivinhacao.play()
-    if option == 1: forca.play()
-    print('\n')
-    game_over()
+    if start(choose_game()):
+        main()
 
 
 if __name__ == '__main__':
